@@ -2,6 +2,7 @@ name: Test
 on:
   push:
     branches: [main]
+    paths: ["src/**", ".github/workflows/test.yml"]
   workflow_dispatch:
 
 jobs:
