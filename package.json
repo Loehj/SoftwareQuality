@@ -1,0 +1,16 @@
+{
+  "name": "softwarequality",
+  "version": "1.0.0",
+  "description": "",
+  "main": "dist/index.js",
+  "author": "",
+  "scripts": {
+    "build": "tsc",
+    "test": "vitest run --coverage"
+  },
+  "devDependencies": {
+    "c8": "^7.11.2",
+    "typescript": "^4.6.4",
+    "vitest": "^0.10.5"
+  }
+}
