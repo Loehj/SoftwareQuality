@@ -1,3 +1,11 @@
-export const helloWorld = {
-  message: "Hello World",
-};
+export function getHelloWorld() {
+  if (true) {
+    return {
+      message: "Hello World",
+    };
+  } else {
+    return {
+      message: "Hello World 2",
+    };
+  }
+}
