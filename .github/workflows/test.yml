@@ -20,3 +20,8 @@ jobs:
         run: npm run build
       - name: Run unit tests
         run: npm run test:unit
+      - name: Check test coverage
+        uses: johanvanhelden/gha-clover-test-coverage-check@v1
+        with:
+          percentage: "90"
+          filename: "coverage/clover.xml"
