@@ -29,7 +29,7 @@ jobs:
         uses: johanvanhelden/gha-clover-test-coverage-check@v1
         with:
           percentage: "80"
-          filename: "coverage/clover.xml"
+          filename: "frontend/coverage/clover.xml"
 
   check_backend:
     name: Check (Backend)
@@ -54,4 +54,4 @@ jobs:
         uses: johanvanhelden/gha-clover-test-coverage-check@v1
         with:
           percentage: "80"
-          filename: "coverage/clover.xml"
+          filename: "backend/coverage/clover.xml"
