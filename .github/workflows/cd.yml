@@ -2,7 +2,7 @@ name: CD
 on:
   push:
     branches: [main, dev]
-    paths: ["src/**", ".github/workflows/cd.yml"]
+    paths: ["frontend/**", "backend/**"]
   workflow_dispatch:
 
 jobs:
