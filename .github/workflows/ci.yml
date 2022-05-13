@@ -49,7 +49,7 @@ jobs:
         if: github.ref_name == 'main'
         uses: johanvanhelden/gha-clover-test-coverage-check@v1
         with:
-          percentage: "80"
+          percentage: "90"
           filename: "frontend/coverage/clover.xml"
 
   frontend_integration_tests:
@@ -102,8 +102,8 @@ jobs:
         if: github.ref_name == 'main'
         uses: johanvanhelden/gha-clover-test-coverage-check@v1
         with:
-          percentage: "80"
-          filename: "frontend/coverage/clover.xml"
+          percentage: "90"
+          filename: "backend/coverage/clover.xml"
 
   backend_integration_tests:
     name: Integration tests (Backend)
