@@ -1,13 +1,13 @@
 name: CI
 on:
   pull_request:
-    branches: [main]
+    branches: [main, dev]
     paths: ["src/**"]
   workflow_dispatch:
 
 jobs:
-  check_frontend:
-    name: Check (Frontend)
+  frontend_build:
+    name: Build (Frontend)
     runs-on: ubuntu-latest
     defaults:
       run:
@@ -23,16 +23,44 @@ jobs:
         run: npm ci
       - name: Build
         run: npm run build
+      - uses: actions/upload-artifact@v3
+        with:
+          name: frontend_build
+          path: frontend/dist
+
+  frontend_unit_tests:
+    name: Unit tests (Frontend)
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: ./frontend
+    steps:
+      - uses: actions/checkout@v2
+      - uses: actions/setup-node@v3
+        with:
+          node-version: 16
+          cache: "npm"
+          cache-dependency-path: "frontend/package-lock.json"
+      - name: Install node modules
+        run: npm ci
       - name: Run unit tests
         run: npm run test:unit
       - name: Check test coverage
+        if: github.ref_name == 'main'
         uses: johanvanhelden/gha-clover-test-coverage-check@v1
         with:
           percentage: "80"
           filename: "frontend/coverage/clover.xml"
 
-  check_backend:
-    name: Check (Backend)
+  frontend_integration_tests:
+    name: Integration tests (Frontend)
+    runs-on: ubuntu-latest
+    needs: frontend_build
+    steps:
+      - run: echo "Noop"
+
+  backend_build:
+    name: Build (Backend)
     runs-on: ubuntu-latest
     defaults:
       run:
@@ -48,10 +76,52 @@ jobs:
         run: npm ci
       - name: Build
         run: npm run build
+      - uses: actions/upload-artifact@v3
+        with:
+          name: backend_build
+          path: backend/dist
+
+  backend_unit_tests:
+    name: Unit tests (Backend)
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: ./backend
+    steps:
+      - uses: actions/checkout@v2
+      - uses: actions/setup-node@v3
+        with:
+          node-version: 16
+          cache: "npm"
+          cache-dependency-path: "backend/package-lock.json"
+      - name: Install node modules
+        run: npm ci
       - name: Run unit tests
         run: npm run test:unit
       - name: Check test coverage
+        if: github.ref_name == 'main'
         uses: johanvanhelden/gha-clover-test-coverage-check@v1
         with:
           percentage: "80"
-          filename: "backend/coverage/clover.xml"
+          filename: "frontend/coverage/clover.xml"
+
+  backend_integration_tests:
+    name: Integration tests (Backend)
+    runs-on: ubuntu-latest
+    needs: backend_build
+    steps:
+      - run: echo "Noop"
+
+  system_tests:
+    name: System tests
+    runs-on: ubuntu-latest
+    if: github.ref_name == 'main'
+    needs:
+      [
+        "frontend_unit_tests",
+        "frontend_integration_tests",
+        "backend_unit_tests",
+        "backend_integration_tests",
+      ]
+    steps:
+      - run: echo "Noop"
