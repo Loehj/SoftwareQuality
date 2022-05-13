@@ -1,28 +1,57 @@
 name: CI
 on:
   pull_request:
-    branches: [main, beta]
+    branches: [main]
     paths: ["src/**"]
+  workflow_dispatch:
 
 jobs:
-  ci:
-    name: CI
+  check_frontend:
+    name: Check (Frontend)
     runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: ./frontend
     steps:
       - uses: actions/checkout@v2
       - uses: actions/setup-node@v3
         with:
           node-version: 16
           cache: "npm"
+          cache-dependency-path: "frontend/package-lock.json"
       - name: Install node modules
         run: npm ci
       - name: Build
         run: npm run build
       - name: Run unit tests
         run: npm run test:unit
-      # TODO: add linting
       - name: Check test coverage
         uses: johanvanhelden/gha-clover-test-coverage-check@v1
         with:
-          percentage: "90"
+          percentage: "80"
+          filename: "coverage/clover.xml"
+
+  check_backend:
+    name: Check (Backend)
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: ./backend
+    steps:
+      - uses: actions/checkout@v2
+      - uses: actions/setup-node@v3
+        with:
+          node-version: 16
+          cache: "npm"
+          cache-dependency-path: "backend/package-lock.json"
+      - name: Install node modules
+        run: npm ci
+      - name: Build
+        run: npm run build
+      - name: Run unit tests
+        run: npm run test:unit
+      - name: Check test coverage
+        uses: johanvanhelden/gha-clover-test-coverage-check@v1
+        with:
+          percentage: "80"
           filename: "coverage/clover.xml"
