@@ -1,20 +1,27 @@
 {
   "name": "softwarequality",
-  "version": "1.0.0",
-  "description": "",
-  "main": "dist/index.js",
-  "author": "",
   "private": true,
+  "version": "1.0.0",
   "scripts": {
-    "build": "tsc",
+    "dev": "vite",
+    "build": "vue-tsc --noEmit && vite build",
+    "preview": "vite preview",
     "test:unit": "vitest --coverage"
+  },
+  "dependencies": {
+    "vue": "^3.2.33"
   },
   "devDependencies": {
     "@semantic-release/changelog": "^6.0.1",
     "@semantic-release/git": "^10.0.1",
+    "@vitejs/plugin-vue": "^2.3.3",
+    "@vue/test-utils": "^2.0.0-rc.21",
     "c8": "^7.11.2",
+    "jsdom": "^19.0.0",
     "typescript": "^4.6.4",
-    "vitest": "^0.10.5"
+    "vite": "^2.9.9",
+    "vitest": "^0.12.4",
+    "vue-tsc": "^0.34.13"
   },
   "release": {
     "branches": [

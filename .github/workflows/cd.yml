@@ -1,0 +1,26 @@
+name: CD
+on:
+  push:
+    branches: [main, beta]
+    paths: ["src/**", ".github/workflows/cd.yml"]
+  workflow_dispatch:
+
+jobs:
+  cd:
+    name: CD
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - uses: actions/setup-node@v3
+        with:
+          node-version: 16
+          cache: "npm"
+      - name: Install node modules
+        run: npm ci
+      - name: Build
+        run: npm run build
+      - name: Run semantic-release
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: npx semantic-release
+      # TODO: deploy website
