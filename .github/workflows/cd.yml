@@ -18,7 +18,7 @@ jobs:
       - name: Install node modules
         run: npm ci
       - name: Build
-        run: npm run build
+        run: npm run docs:build
       - uses: actions/upload-artifact@v3
         with:
           name: frontend_build
