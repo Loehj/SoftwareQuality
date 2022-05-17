@@ -26,6 +26,12 @@ jobs:
     steps:
       - run: echo "Noop"
 
+  frontend_lint:
+    name: Lint and format (Frontend)
+    runs-on: ubuntu-latest
+    steps:
+      - run: echo "Noop"
+
   frontend_integration_tests:
     name: Integration tests (Frontend)
     runs-on: ubuntu-latest
@@ -36,18 +42,18 @@ jobs:
   backend_build:
     name: Build (Backend)
     runs-on: ubuntu-latest
-    defaults:
-      run:
-        working-directory: ./backend
     steps:
       - run: echo "Noop"
 
   backend_unit_tests:
     name: Unit tests (Backend)
     runs-on: ubuntu-latest
-    defaults:
-      run:
-        working-directory: ./backend
+    steps:
+      - run: echo "Noop"
+
+  backend_lint:
+    name: Lint and format (Backend)
+    runs-on: ubuntu-latest
     steps:
       - run: echo "Noop"
 
