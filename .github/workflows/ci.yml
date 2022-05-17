@@ -23,6 +23,7 @@ jobs:
   frontend_unit_tests:
     name: Unit tests (Frontend)
     runs-on: ubuntu-latest
+    if: github.ref_name != 'dev'
     steps:
       - run: echo "Noop"
 
@@ -35,6 +36,7 @@ jobs:
   frontend_integration_tests:
     name: Integration tests (Frontend)
     runs-on: ubuntu-latest
+    if: github.ref_name != 'dev'
     needs: frontend_build
     steps:
       - run: echo "Noop"
@@ -48,6 +50,7 @@ jobs:
   backend_unit_tests:
     name: Unit tests (Backend)
     runs-on: ubuntu-latest
+    if: github.ref_name != 'dev'
     steps:
       - run: echo "Noop"
 
@@ -60,6 +63,7 @@ jobs:
   backend_integration_tests:
     name: Integration tests (Backend)
     runs-on: ubuntu-latest
+    if: github.ref_name != 'dev'
     needs: backend_build
     steps:
       - run: echo "Noop"
@@ -67,7 +71,7 @@ jobs:
   system_tests:
     name: System tests
     runs-on: ubuntu-latest
-    if: github.ref_name == 'main'
+    if: github.ref_name != 'dev'
     needs:
       [
         "frontend_unit_tests",
