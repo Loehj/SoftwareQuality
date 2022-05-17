@@ -1,24 +1,20 @@
 name: CD
 on:
   push:
-    branches: [main, dev]
-    paths: ["frontend/**", "backend/**"]
+    branches: [main, dev, qa]
+    paths: ["docs/**"]
   workflow_dispatch:
 
 jobs:
   frontend_build:
     name: Build (Frontend)
     runs-on: ubuntu-latest
-    defaults:
-      run:
-        working-directory: ./frontend
     steps:
       - uses: actions/checkout@v2
       - uses: actions/setup-node@v3
         with:
           node-version: 16
           cache: "npm"
-          cache-dependency-path: "frontend/package-lock.json"
       - name: Install node modules
         run: npm ci
       - name: Build
@@ -26,29 +22,13 @@ jobs:
       - uses: actions/upload-artifact@v3
         with:
           name: frontend_build
-          path: frontend/dist
+          path: docs/.vitepress/dist
 
   backend_build:
     name: Build (Backend)
     runs-on: ubuntu-latest
-    defaults:
-      run:
-        working-directory: ./backend
     steps:
-      - uses: actions/checkout@v2
-      - uses: actions/setup-node@v3
-        with:
-          node-version: 16
-          cache: "npm"
-          cache-dependency-path: "backend/package-lock.json"
-      - name: Install node modules
-        run: npm ci
-      - name: Build
-        run: npm run build
-      - uses: actions/upload-artifact@v3
-        with:
-          name: backend_build
-          path: backend/dist
+      - run: echo "Noop"
 
   deploy:
     name: Deploy
@@ -57,8 +37,8 @@ jobs:
     steps:
       - run: echo "Noop"
 
-  deploy_check:
-    name: Check deployment
+  deploy_verify:
+    name: Verify deployment
     runs-on: ubuntu-latest
     needs: deploy
     steps:
