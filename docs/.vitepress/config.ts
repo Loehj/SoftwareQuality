@@ -22,10 +22,6 @@ export default defineConfig({
             link: "/aufbau",
           },
           {
-            text: "Stages",
-            link: "/stages",
-          },
-          {
             text: "Vor- und Nachteile",
             link: "/vor-und-nachteile",
           },
