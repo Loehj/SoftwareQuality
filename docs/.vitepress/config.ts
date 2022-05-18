@@ -10,7 +10,7 @@ export default defineConfig({
         text: "Git ohne Pipeline",
         children: [
           {
-            text: "Risiken und Lösungen",
+            text: "Risiken und Lösungen von Fachbereichen",
             link: "/ohne-pipeline/risiken-und-loesungen",
           },
         ],
