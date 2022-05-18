@@ -1,9 +1,10 @@
 import { defineConfig } from "vitepress";
 
 export default defineConfig({
-  title: "Softwarequalität INF19B - Softwaretest und CI/CD",
+  title: "Softwaretest und CI/CD",
   themeConfig: {
     logo: "logo-dhbw.png",
+    repo: "https://github.com/Loehj/SoftwareQuality",
     sidebar: [
       {
         text: "Git ohne Pipeline",
