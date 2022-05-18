@@ -27,8 +27,8 @@ jobs:
     steps:
       - run: echo "Noop"
 
-  frontend_lint:
-    name: Lint and format (Frontend)
+  frontend_static:
+    name: Static tests (Frontend)
     runs-on: ubuntu-latest
     steps:
       - run: echo "Noop"
@@ -54,8 +54,8 @@ jobs:
     steps:
       - run: echo "Noop"
 
-  backend_lint:
-    name: Lint and format (Backend)
+  backend_static:
+    name: Static tests (Backend)
     runs-on: ubuntu-latest
     steps:
       - run: echo "Noop"
