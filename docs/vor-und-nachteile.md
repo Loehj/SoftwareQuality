@@ -20,4 +20,4 @@
 - ❌ Spezielle Kenntnisse der CI/CD-Tools notwendig
 - ❌ ggf. Kosten für Infrastruktur bzw. CI/CD-Server
 
-Quellen: \[5\], \[6\]
+Quellen: \[3\], \[4\]
