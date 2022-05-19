@@ -2,7 +2,7 @@
 home: true
 heroImage: /assets/ci-pipeline.png
 heroAlt: Logo image
-heroText: Vielen Dank für Ihre Aufmerksamkeit!
+heroText: Vielen Dank füür Ihre Aufmerksamkeit!
 tagline: " "
 features:
   - title: Johannes Löh
