@@ -25,6 +25,10 @@ export default defineConfig({
             text: "Quellen",
             link: "/quellen",
           },
+          {
+            text: "Fragen",
+            link: "/ende",
+          },
         ],
       },
     ],
