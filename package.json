@@ -5,9 +5,13 @@
   "scripts": {
     "docs:dev": "vitepress dev docs",
     "docs:build": "vitepress build docs",
-    "docs:serve": "vitepress serve docs"
+    "docs:serve": "vitepress serve docs",
+    "docs:test": "cspell docs/**/*.md"
   },
   "devDependencies": {
+    "@cspell/dict-de-de": "^2.1.0",
+    "cspell": "^5.21.0",
+    "cspell-dict-de-de": "^1.2.3",
     "vitepress": "^0.22.4"
   }
 }

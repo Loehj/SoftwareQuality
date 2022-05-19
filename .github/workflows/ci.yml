@@ -25,7 +25,15 @@ jobs:
     runs-on: ubuntu-latest
     if: github.ref_name == 'main' || github.ref_name == 'qa' || (github.event_name == 'pull_request' && (github.base_ref == 'refs/heads/main' || github.base_ref == 'refs/heads/qa'))
     steps:
-      - run: echo "Noop"
+      - uses: actions/checkout@v2
+      - uses: actions/setup-node@v3
+        with:
+          node-version: 16
+          cache: "npm"
+      - name: Install node modules
+        run: npm ci
+      - name: Build
+        run: npm run docs:test
 
   frontend_static:
     name: Static tests (Frontend)
