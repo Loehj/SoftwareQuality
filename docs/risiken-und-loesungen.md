@@ -1,5 +1,12 @@
 # Risiken und Lösungen von Fachbereichen
 
-![Push to master](/assets/git-push-to-master.webp)
+<br>
 
-Quelle: \[1\]
+![Git Collaborate](/assets/git-collaborate.png)
+Quelle: \[1\], \[2\]
+
+<br>
+<br>
+
+![Push to master](/assets/git-push-to-master.webp)
+Quelle: \[3\]
