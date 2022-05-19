@@ -1,0 +1,8 @@
+:root {
+  --c-brand: #3c98fd;
+  --c-brand-light: #3c98fd;
+}
+
+.home-features .features {
+  text-align: center;
+}
