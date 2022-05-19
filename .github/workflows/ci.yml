@@ -23,9 +23,17 @@ jobs:
   frontend_unit_tests:
     name: Unit tests (Frontend)
     runs-on: ubuntu-latest
-    if: github.ref_name != 'dev'
+    if: github.ref_name == 'main' || github.ref_name == 'qa' || (github.event_name == 'pull_request' && (github.base_ref == 'refs/heads/main' || github.base_ref == 'refs/heads/qa'))
     steps:
-      - run: echo "Noop"
+      - uses: actions/checkout@v2
+      - uses: actions/setup-node@v3
+        with:
+          node-version: 16
+          cache: "npm"
+      - name: Install node modules
+        run: npm ci
+      - name: Spellcheck
+        run: npm run docs:test
 
   frontend_static:
     name: Static tests (Frontend)
@@ -36,7 +44,7 @@ jobs:
   frontend_integration_tests:
     name: Integration tests (Frontend)
     runs-on: ubuntu-latest
-    if: github.ref_name != 'dev'
+    if: github.ref_name == 'main' || github.ref_name == 'qa' || (github.event_name == 'pull_request' && (github.base_ref == 'refs/heads/main' || github.base_ref == 'refs/heads/qa'))
     needs: frontend_build
     steps:
       - run: echo "Noop"
@@ -50,7 +58,7 @@ jobs:
   backend_unit_tests:
     name: Unit tests (Backend)
     runs-on: ubuntu-latest
-    if: github.ref_name != 'dev'
+    if: github.ref_name == 'main' || github.ref_name == 'qa' || (github.event_name == 'pull_request' && (github.base_ref == 'refs/heads/main' || github.base_ref == 'refs/heads/qa'))
     steps:
       - run: echo "Noop"
 
@@ -63,7 +71,7 @@ jobs:
   backend_integration_tests:
     name: Integration tests (Backend)
     runs-on: ubuntu-latest
-    if: github.ref_name != 'dev'
+    if: github.ref_name == 'main' || github.ref_name == 'qa' || (github.event_name == 'pull_request' && (github.base_ref == 'refs/heads/main' || github.base_ref == 'refs/heads/qa'))
     needs: backend_build
     steps:
       - run: echo "Noop"
@@ -71,13 +79,15 @@ jobs:
   system_tests:
     name: System tests
     runs-on: ubuntu-latest
-    if: github.ref_name != 'dev'
+    if: github.ref_name == 'main' || github.ref_name == 'qa' || (github.event_name == 'pull_request' && (github.base_ref == 'refs/heads/main' || github.base_ref == 'refs/heads/qa'))
     needs:
       [
         "frontend_unit_tests",
+        "frontend_static",
         "frontend_integration_tests",
         "backend_unit_tests",
         "backend_integration_tests",
+        "backend_static",
       ]
     steps:
       - run: echo "Noop"
