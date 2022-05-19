@@ -1,0 +1,14 @@
+---
+home: true
+heroImage: /ci-pipeline.png
+heroAlt: Logo image
+heroText: Vielen Dank füürr Ihre Aufmerksamkeit!
+tagline: " "
+features:
+  - title: Johannes Löh
+    details: Kurs INF19B
+  - title: Lars Rickert
+    details: Kurs INF19B
+  - title: Marcel Wolf
+    details: Kurs INF19A
+---
