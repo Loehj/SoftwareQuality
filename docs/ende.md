@@ -1,6 +1,6 @@
 ---
 home: true
-heroImage: /assets/ci-pipeline.png
+heroImage: /ci-pipeline.png
 heroAlt: Logo image
 heroText: Vielen Dank für Ihre Aufmerksamkeit!
 tagline: " "
