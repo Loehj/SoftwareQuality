@@ -7,12 +7,12 @@
   }
 </style>
 
-- ✅ schnellere(s) Testausführung / Feedback
-- ✅ Vertrauen in die (funktionierende) Software
+- ✅ schnellere Testausführung
+- ✅ Vertrauen in die Software
 - ✅ häufige Releases
 - ✅ Vermeidung von redundanten Aufgaben und menschlichen Fehlern
 - ✅ Zeitersparnis für das Test-Team / bessere Ausnutzung von Ressourcen
-- ✅ Adaptiv/inkrementell integrierbar
+- ✅ Inkrementell integrierbar » Skalierbarkeit
 
 <br />
 

@@ -1,0 +1,13 @@
+{
+  "import": ["@cspell/dict-de-de/cspell-ext.json"],
+  "language": "de,en",
+  "ignorePaths": ["docs/quellen.md", "docs/aufbau.md"],
+  "dictionaries": ["custom-words"],
+  "dictionaryDefinitions": [
+    {
+      "name": "custom-words",
+      "path": "./cspell-wordlist.txt",
+      "addWords": true
+    }
+  ]
+}
