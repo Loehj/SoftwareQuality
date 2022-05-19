@@ -30,6 +30,7 @@ jobs:
         with:
           task_name: Markdown
           source_files: docs/**/*.md
+          config_path: .spellcheck.yml
 
   frontend_static:
     name: Static tests (Frontend)
