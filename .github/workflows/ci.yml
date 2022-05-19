@@ -31,7 +31,10 @@ jobs:
     name: Static tests (Frontend)
     runs-on: ubuntu-latest
     steps:
-      - run: echo "Noop"
+      - name: Spellcheck
+        uses: rojopolis/spellcheck-github-actions@0.24.0
+        with:
+          source_files: docs/**/*.md
 
   frontend_integration_tests:
     name: Integration tests (Frontend)
