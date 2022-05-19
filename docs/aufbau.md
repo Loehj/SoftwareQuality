@@ -1,6 +1,6 @@
 # Aufbau der CI/CD-Pipeline
 
-## Was lässt sich in eine CI/CD-Pipeline integrieren?
+## Welche Testarten lassen sich in eine CI/CD-Pipeline integrieren?
 
 - Statische Code Analyse
 - Unittests
