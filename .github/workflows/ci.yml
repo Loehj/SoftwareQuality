@@ -25,11 +25,7 @@ jobs:
     runs-on: ubuntu-latest
     if: github.ref_name != 'dev'
     steps:
-      - name: Spellcheck
-        uses: rojopolis/spellcheck-github-actions@0.23.0
-        with:
-          config_path: .spellcheck.yml
-          task_name: Markdown
+      - run: echo "Noop"
 
   frontend_static:
     name: Static tests (Frontend)
