@@ -1,6 +1,6 @@
 ---
 home: true
-heroImage: /assets/introduction.png
+heroImage: /introduction.png
 heroAlt: Logo image
 heroText: Softwaretest und CI/CD
 tagline: " "
