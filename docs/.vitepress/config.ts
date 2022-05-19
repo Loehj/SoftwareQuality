@@ -10,10 +10,6 @@ export default defineConfig({
         text: "Softwaretest und CI/CD",
         children: [
           {
-            text: "Einleitung",
-            link: "/",
-          },
-          {
             text: "Risiken und Lösungen von Fachbereichen",
             link: "/risiken-und-loesungen",
           },
