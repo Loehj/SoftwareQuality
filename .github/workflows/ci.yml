@@ -40,8 +40,6 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - run: echo "Noop"
-      - run: echo ${{ github.event_name }}
-      - run: echo ${{ github.base_ref }}
 
   frontend_integration_tests:
     name: Integration tests (Frontend)
