@@ -21,6 +21,10 @@ export default defineConfig({
             text: "Vor- und Nachteile",
             link: "/vor-und-nachteile",
           },
+          {
+            text: "Quellen",
+            link: "/quellen",
+          },
         ],
       },
     ],

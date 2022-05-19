@@ -20,7 +20,4 @@
 - ❌ Spezielle Kenntnisse der CI/CD-Tools notwendig
 - ❌ ggf. Kosten für Infrastruktur bzw. CI/CD-Server
 
-Quellen:
-
-- https://www.jetbrains.com/de-de/teamcity/ci-cd-guide/automated-testing/
-- https://www.redbots.de/blog/vorteile-nachteile-testautomatisierung/
+Quellen: \[3\], \[4\]

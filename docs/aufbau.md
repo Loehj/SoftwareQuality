@@ -2,10 +2,6 @@
 
 ## Was lässt sich in eine CI/CD-Pipeline integrieren?
 
-::: warning Mögliche Frage
-Welche von den genannten sind dynamische und statische Tests?
-:::
-
 - Statische Code Analyse
 - Unittests
 - Integrationstests
@@ -15,4 +11,19 @@ Welche von den genannten sind dynamische und statische Tests?
 - Leistungstests
 - Akzeptanztests
 
-Quelle: https://theqalead.com/topics/what-are-automation-testing-tools/
+Quelle: \[2\]
+
+<br />
+<br />
+
+<div class="nav-link action"><a style="display: inline-block;
+    border-radius: 6px;
+    padding: 0 20px;
+    color: var(--c-bg);
+    background-color: var(--c-brand);
+    border: 2px solid var(--c-brand);
+    transition: background-color 0.1s ease;padding: 0 24px;
+    line-height: 52px;
+    font-size: 1.1rem;
+    font-weight: 500;
+    text-decoration: none" href="https://github.com/Loehj/SoftwareQuality/pulls" target="_blank">Live-Demo</a></div>
